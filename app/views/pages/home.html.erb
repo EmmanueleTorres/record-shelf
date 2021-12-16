@@ -1,0 +1,29 @@
+<h1>Buscador de Vinilos</h1>
+<form class="row g-3 justify-content-center mt-3">
+  <div class="col-sm-8">
+    <input type="search" name="query" class="form-control form-input-large" placeholder="¿Qué vinilo deseas buscar?" aria-label="Search" value="<%= params[:query] %>">
+    
+  </div>
+  <div class="col-auto">
+    <button type="submit" class="btn btn-primary form-input-large pill"><i class="fas fa-search"></i> sBuscar</button>
+  </div>
+</form>
+
+<% if params[:query].present? %>
+  <% @records.each do |record| %>
+    <div class="card mb-3" style="max-width: 540px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="<%= record[:img_url] %>" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title"><%= record[:title] %></h5>
+            <p class="card-text"><%= record[:artist] %></p>
+            <p class="card-text"><small class="text-muted"><%= record[:catalog_number] %></small></p>
+          </div>
+        </div>
+      </div>
+    </div>  
+  <% end %>
+<% end %>

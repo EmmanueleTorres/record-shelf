@@ -59,3 +59,6 @@ gem "autoprefixer-rails"
 gem "bootstrap"
 gem "font-awesome-sass"
 gem "simple_form"
+
+gem 'httparty'
+gem 'nokogiri'
